@@ -20,6 +20,7 @@ module.exports = {
 	insert,
 	getTasks,
 	addTask,
+	editTask,
 };
 
 async function insert(user) {
@@ -36,6 +37,22 @@ async function addTask(task) {
 	});
 	if (task != "FAILED")
 		return await new Task(task).save();
+}
+
+async function editTask(task) {
+	task = await postSchema.validateAsync(task, { abortEarly: false }).catch((err) => {
+		console.log("Empty field. ", err);
+		return "FAILED";
+	});
+	Task.findOne({ 'title': task.title }).then((foundTask, err) => {
+		if (foundTask == null) {
+			console.log("ERROR: did not find a task with this title", err);
+			return;
+		}
+		console.log("foundTask found: ", foundTask);
+		foundTask.content = task.content;
+		return foundTask.save();
+	});
 }
 
 async function getTasks() {
