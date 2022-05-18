@@ -87,6 +87,10 @@ export class AuthService {
 		return this.http.post("/api/addTask", post);
 	}
 
+	editTask(post: Object) {
+		return this.http.post("/api/editTask", post);
+	}
+
 	getTasks() {
 		return this.http.post("/api/getTasks", {});
 	}

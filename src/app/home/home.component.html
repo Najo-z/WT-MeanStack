@@ -4,6 +4,11 @@
 	<input formControlName="content" type="text" name="content" placeholder="Content..." required>
 	<input type="submit" value="Add New Task" (click)="addTask()">
 </form>
+<form [formGroup]="TaskForm">
+	<input formControlName="title" type="text" name="title" placeholder="Title..." required>
+	<input formControlName="content" type="text" name="content" placeholder="Content..." required>
+	<input type="submit" value="Edit Task" (click)="editTask()">
+</form>
 <form>
 	<input type="submit" value="Get All Tasks" (click)="getTasks()">
 </form>

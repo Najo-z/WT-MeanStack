@@ -29,6 +29,15 @@ export class HomeComponent {
 		});
 		window.location.reload();
 	}
+	editTask(): void {
+		this.authService.editTask({
+			title: this.TaskForm.get("title")!.value,
+			content: this.TaskForm.get("content")!.value,
+		}).subscribe((response) => {
+			console.log("Task edited succesfully: ", response);
+		});
+		window.location.reload();
+	}
 
 	getTasks(): void {
 		this.authService.getTasks().subscribe((response) => {

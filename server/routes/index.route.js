@@ -32,6 +32,16 @@ router.post('/addTask', (req, res) => {
 	});
 })
 
+router.post('/editTask', (req, res) => {
+	userCtrl.editTask(req.body).then((user, err) => {
+		if (err) {
+			console.log("Error occured: ", err);
+			res.status(500).send({ error: "Something failed! " + err });
+		}
+		console.log("MYPOST /editTask: ", user)
+	});
+})
+
 router.post('/getTasks', (req, res) => {
 	userCtrl.getTasks().then((tasks, err) => {
 		if (err) {
