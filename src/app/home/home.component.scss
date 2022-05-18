@@ -8,7 +8,7 @@ ul {
     border-radius: 1.5rem;
     padding: 0.5rem;
     margin: 1rem;
-    button {
+    >button {
         width: 100%;
     }
 }
@@ -22,8 +22,13 @@ li {
     margin-bottom: 0.5em;
     h2 {
         margin: 0;
+        display: inline-block;
+        width: fit-content;
     }
     p {
         margin: 0;
+    }
+    >button {
+        right: 0;
     }
 }
