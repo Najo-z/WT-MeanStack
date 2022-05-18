@@ -14,6 +14,8 @@ const userSchema = Joi.object({
 const postSchema = Joi.object({
 	title: Joi.string().required(),
 	content: Joi.string().required(),
+	done: Joi.boolean(),
+	assignee: Joi.string().required(),
 });
 
 module.exports = {
@@ -50,7 +52,10 @@ async function editTask(task) {
 			return;
 		}
 		console.log("foundTask found: ", foundTask);
+		console.log("new task to update with: ", task);
 		foundTask.content = task.content;
+		foundTask.done = task.done;
+		foundTask.assignee = task.assignee;
 		return foundTask.save();
 	});
 }
