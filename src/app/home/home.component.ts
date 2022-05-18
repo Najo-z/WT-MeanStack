@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '@app/shared/services';
+import { NoteComponent } from '@app/note/note.component';
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
 	providers: [AuthService],
+	viewProviders: [NoteComponent]
 })
 
 export class HomeComponent {

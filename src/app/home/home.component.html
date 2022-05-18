@@ -1,4 +1,13 @@
 <p>home works!</p>
+<!-- <note [title]="this is a title"></note> -->
+<ul>
+	<h1>Note title</h1>
+	<li *ngFor="let task of tasks">
+		<h2>{{task.title}}</h2>
+		<p>{{task.content}}</p>
+	</li>
+	<button>Add task</button>
+</ul>
 <form [formGroup]="TaskForm">
 	<input formControlName="title" type="text" name="title" placeholder="Title..." required>
 	<input formControlName="content" type="text" name="content" placeholder="Content..." required>
